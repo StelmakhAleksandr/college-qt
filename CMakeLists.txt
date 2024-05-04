@@ -14,10 +14,10 @@ qt_add_executable(appCollege
     src/App.cpp
     src/model/StudentsModel.h
     src/model/StudentsModel.cpp
-
-
     src/classes/RestApi.h
     src/classes/RestApi.cpp
+    src/model/TeachersModel.h
+    src/model/TeachersModel.cpp
 )
 
 set_target_properties(appCollege PROPERTIES
@@ -43,6 +43,8 @@ qt6_add_resources(appCollege "qml"
     FILES
     "src/qml/Main.qml"
     "src/qml/StudentsView.qml"
+    "src/qml/MainView.qml"
+    "src/qml/TeachersView.qml"
 )
 
 qt6_add_resources(appCollege "conf"

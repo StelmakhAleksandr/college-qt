@@ -2,11 +2,18 @@
 
 #include "../classes/RestApi.h"
 
+namespace {
+constexpr auto FirstName = "firstName";
+constexpr auto LastName = "lastName";
+constexpr auto PhoneNumber = "phoneNumber";
+constexpr auto Email = "email";
+constexpr auto GroupName = "groupName";
+}
+
 StudentsModel::StudentsModel()
 {
     RestApi api;
     m_students = api.fetchStudents();
-    qDebug() << m_students.size();
 }
 
 int StudentsModel::rowCount(const QModelIndex& parent) const
@@ -22,15 +29,15 @@ QVariant StudentsModel::data(const QModelIndex& index, int role) const
     StudentsModelItemRole studentRole = (StudentsModelItemRole)role;
     switch (studentRole) {
     case StudentsModelItemRole::FirstNameRole:
-        return student["firstName"].toString();
+        return student[FirstName].toString();
     case StudentsModelItemRole::LastNameRole:
-        return student["lastName"].toString();
+        return student[LastName].toString();
     case StudentsModelItemRole::PhoneNumberRole:
-        return student["phoneNumber"].toString();
+        return student[PhoneNumber].toString();
     case StudentsModelItemRole::EmailRole:
-        return student["email"].toString();
+        return student[Email].toString();
     case StudentsModelItemRole::GroupNameRole:
-        return student["groupName"].toString();
+        return student[GroupName].toString();
     default:
         return QVariant();
     }
@@ -40,11 +47,11 @@ QVariant StudentsModel::data(const QModelIndex& index, int role) const
 QHash<int, QByteArray> StudentsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[(int)StudentsModelItemRole::FirstNameRole] = "firstName";
-    roles[(int)StudentsModelItemRole::LastNameRole] = "lastName";
-    roles[(int)StudentsModelItemRole::PhoneNumberRole] = "phoneNumber";
-    roles[(int)StudentsModelItemRole::EmailRole] = "email";
-    roles[(int)StudentsModelItemRole::GroupNameRole] = "groupName";
+    roles[(int)StudentsModelItemRole::FirstNameRole] = FirstName;
+    roles[(int)StudentsModelItemRole::LastNameRole] = LastName;
+    roles[(int)StudentsModelItemRole::PhoneNumberRole] = PhoneNumber;
+    roles[(int)StudentsModelItemRole::EmailRole] = Email;
+    roles[(int)StudentsModelItemRole::GroupNameRole] = GroupName;
     return roles;
 }
 

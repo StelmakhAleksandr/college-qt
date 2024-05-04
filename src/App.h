@@ -6,6 +6,7 @@
 #include <QQmlContext>
 
 #include "model/StudentsModel.h"
+#include "model/TeachersModel.h"
 
 class App : public QObject
 {
@@ -23,4 +24,5 @@ private:
     QGuiApplication m_app;
     QQmlApplicationEngine m_engine;
     StudentsModel m_studentsModel;
+    TeachersModel m_teachersModel;
 };

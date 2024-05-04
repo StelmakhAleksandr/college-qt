@@ -12,7 +12,7 @@ Item {
 
     Text {
         id: studentsLabel
-        text: "Список студентів"
+        text: "Список вчителів"
         font.pixelSize: 24
         color: Material.accent
         horizontalAlignment: Text.AlignHCenter
@@ -26,13 +26,13 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.topMargin: 5
-        model: StudentsModel
+        model: TeachersModel
         spacing: 5
-        delegate: studentDelegate
+        delegate: teacherDelegate
     }
 
     Component {
-        id: studentDelegate
+        id: teacherDelegate
         Rectangle {
             width: parent.width
             height: 150
@@ -63,7 +63,7 @@ Item {
                     }
 
                     Text {
-                        text: "Група: " + model.groupName
+                        text: "Факультет: " + model.departmentName
                         font.pixelSize: 16
                         color: Material.accent
                     }

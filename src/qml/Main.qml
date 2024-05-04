@@ -5,12 +5,12 @@ ApplicationWindow {
     width: 640
     height: 480
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("College App")
 
     Loader {
         id: loader
         anchors.fill: parent
-        source: "StudentsView.qml"
+        source: "TeachersView.qml"
 
         onLoaded: {
             loader.item.changeView.connect(changeView)
@@ -18,9 +18,8 @@ ApplicationWindow {
     }
 
 
-    function changeView() {
-        console.log("change view")
-        loader.source = "TestView.qml"
+    function changeView(src) {
+        loader.source = src
     }
 
 

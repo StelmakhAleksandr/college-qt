@@ -16,9 +16,18 @@ RestApi::RestApi()
 
 QJsonArray RestApi::fetchStudents()
 {
+    return fetch(QUrl("https://college.eboard.games/students"));
+}
+
+QJsonArray RestApi::fetchTeachers()
+{
+    return fetch(QUrl("https://college.eboard.games/teachers"));
+}
+
+QJsonArray RestApi::fetch(QUrl url)
+{
     QNetworkAccessManager manager;
     QEventLoop loop;
-    QUrl url("https://college.eboard.games/students");
     QNetworkRequest request(url);
 
     QObject::connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);

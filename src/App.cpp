@@ -9,6 +9,7 @@ int App::run()
 {
     m_engine.rootContext()->setContextProperty("App", this);
     m_engine.rootContext()->setContextProperty("StudentsModel", &m_studentsModel);
+    m_engine.rootContext()->setContextProperty("TeachersModel", &m_teachersModel);
 
     initSignals();
     m_engine.load(":/src/qml/Main.qml");
